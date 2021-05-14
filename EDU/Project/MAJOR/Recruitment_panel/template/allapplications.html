@@ -1,0 +1,53 @@
+{% extends 'adminHome.html' %}
+
+{% block containt %}
+
+<style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    th{
+      
+    }
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+    </style>
+    </head>
+    <body>
+    <br><br>
+    <h2 class="text-center">All Applications</h2>
+    
+    <table>
+      <tr>
+        <th>Application ID</th>
+        <th>User</th>
+        <th>Post</th>
+        <th>Date</th>
+        <th>View</th>
+      </tr>
+      <tr>
+        {% for x in post %}
+    <tr>
+      <td>{{x.application_id}}</td>
+      <td>{{x.userName}}</td>
+      <td>{{x.post_name}}</td>
+      <td>{{x.application_date}}</td>
+      <td><a href="me/{{x.application_id}}">View</a></td>
+    </tr>
+      {% endfor %}
+    </tr>
+      
+    </table>
+
+    
+
+{% endblock %}

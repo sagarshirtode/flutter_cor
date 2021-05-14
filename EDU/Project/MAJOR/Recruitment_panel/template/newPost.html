@@ -1,0 +1,94 @@
+{% extends 'adminhome.html' %}
+
+{% block containt %}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+ <!-- Font Awesome -->
+ <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+ <!-- Google Fonts -->
+ <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+ <!-- Bootstrap core CSS -->
+ <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+ <!-- Material Design Bootstrap -->
+ <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.12.0/css/mdb.min.css" rel="stylesheet">
+<!-- //////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<p class="text-success">{{msg}}</p>
+{% load static %}
+<div class="container py-5 ">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="text-center mb-5">Add new Requirment</h2>
+            <div class="row">
+                <div class="col-md-6 mx-auto">
+                    <div class="card border-secondary">
+                        <div class="card-header">
+                            <h3 class="mb-0 my-2">Requirment</h3>
+                        </div>
+                        <div class="card-body">
+                           
+                            <form class="form" method ="POST" action ="postinput" role="form" autocomplete="off">
+                              {% csrf_token %}
+
+                              
+                              <div class="form-group">
+                                <label for="inputName">ID</label>
+                                <input type="text" class="form-control" name="id1" > <label class="bg-warning">Suggest:{{id}}</label>                                <!-- {{ form.id }} -->
+                            </div>
+                              <div class="form-group">
+                                <label for="inputName">Post Name</label>
+                                <input type="text" class="form-control"  name="postName" placeholder="post_name">
+                                <!-- {{ form.id }} -->
+                            </div>
+                                <div class="form-group">
+                                    <label for="inputName">Vacancies</label>
+                                    <input type="text" class="form-control" id="vacancies" name="vacancies" placeholder="vacancies">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputName">Description</label>
+                                    <input type="text" class="form-control" id="Description" name="description" placeholder="post_description">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail3">Min Salary</label>
+                                    <input type="text" class="form-control" id="inputEmail3" name="minsalary" placeholder="min_salary">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="inputPassword3">Max Salary</label>
+                                    <input type="text" class="form-control" id="inputPassword3" name="maxsalary" placeholder="max_salary">
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputVerify3">qualification</label>
+                                    <textarea class="form-control" rows="5" name="qual" id="comment"></textarea>
+                                    <!-- <input type="text" class="form-control" id="inputVerify3" placeholder="qualification" required=""> -->
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-success btn-lg float-right" >Add <i class="fa fa-plus" aria-hidden="true"></i></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/row-->
+
+        </div>
+        <!--/col-->
+    </div>
+    <!--/row-->
+</div>
+    <div class="alert alert-success">
+    <a href="post">Online Post Now &#9769;</a>
+    <!-- <strong>{{name}} {{vacancies1}} {{description}} {{minsalary1}} {{maxsalary1}} {{qual1}}  </strong> -->
+  </div>
+  
+<!-- ////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.12.0/js/mdb.min.js"></script>
+
+
+{% endblock %}

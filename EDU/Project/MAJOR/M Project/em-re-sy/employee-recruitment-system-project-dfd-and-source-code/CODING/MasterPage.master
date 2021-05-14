@@ -1,0 +1,68 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title>Untitled Page</title>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        &nbsp;<div>
+            &nbsp;<div>
+                &nbsp;<table border="0" cellpadding="0" cellspacing="0" style="width: 97%; height: 1%">
+                    <tr>
+                        <td colspan="2">
+                            <div style="text-align: center">
+                                <table style="width: 470px; height: 54px">
+                                    <tr>
+                                        <td colspan="2" style="width: 527px">
+                                            <asp:AdRotator ID="AdRotator1" runat="server" Height="102px" Width="513px" AdvertisementFile="~/XMLFile.xml" />
+                                            &nbsp;
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" valign="middle" style="width: 527px">
+                                            &nbsp;<asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" Width="504px" Font-Bold="True" Height="18px" BackColor="#FFFBD6" DynamicHorizontalOffset="2" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#990000" StaticSubMenuIndent="10px">
+                                                <Items>
+                                                    <asp:MenuItem NavigateUrl="~/home.aspx" Text="Home" Value="Home"></asp:MenuItem>
+                                                    <asp:MenuItem NavigateUrl="~/login.aspx" Text="Userlogin" Value="Userlogin"></asp:MenuItem>
+                                                    <asp:MenuItem NavigateUrl="~/company.aspx" Text="Company" Value="Company"></asp:MenuItem>
+                                                    <asp:MenuItem NavigateUrl="~/Admin.aspx" Text="Admin" Value="Admin"></asp:MenuItem>
+                                                </Items>
+                                                <StaticMenuStyle BackColor="#E0E0E0" />
+                                                <StaticMenuItemStyle BackColor="Silver" HorizontalPadding="5px" VerticalPadding="2px" />
+                                                <DynamicHoverStyle BackColor="#990000" ForeColor="White" />
+                                                <DynamicMenuStyle BackColor="#FFFBD6" />
+                                                <StaticSelectedStyle BackColor="#FFCC66" ForeColor="Red" />
+                                                <DynamicSelectedStyle BackColor="#FFCC66" />
+                                                <DynamicMenuItemStyle BackColor="#804040" ForeColor="#FF8080" HorizontalPadding="5px"
+                                                    VerticalPadding="2px" />
+                                                <StaticHoverStyle BackColor="#990000" ForeColor="Red" />
+                                            </asp:Menu>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px">
+                        </td>
+                        <td>
+                            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="height: 2px">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    </form>
+</body>
+</html>

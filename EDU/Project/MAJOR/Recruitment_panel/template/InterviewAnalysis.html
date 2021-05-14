@@ -1,0 +1,232 @@
+{% extends 'adminHome.html' %}
+
+{% block containt %}
+  
+<style>
+    .main{
+        display: flex;
+        justify-content: space-around;
+        background-color: #e6e9e7;
+        height: auto;
+        width: 98%;
+        margin-left: 10px;
+        margin-right: 10px;
+        border-radius: 5px;
+    }
+    
+    .main2{
+        margin-top: 10%;
+        position: relative;
+        justify-content: space-around;
+        background-color:#e6e9e7;
+        height: 500px;
+        width: 98%;
+        margin-left: 10px;
+        margin-right: 10px;
+        border-radius: 5px;
+        margin-bottom: 3px;
+    }
+    .sub1{
+        position: absolute;
+        height: 500px;
+        width: 100%;
+        background-color:#e6e9e7;
+        border-radius: 5px;
+    }
+
+    #customers {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 98%;
+    margin-top: 30px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 100px;
+  }
+  
+  #customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #customers tr:nth-child(even){background-color: #f2f2f2;}
+  
+  #customers tr:hover {background-color: #ddd;}
+  
+  #customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color:#e6e9e7;
+  }
+
+  /* ******************* For Table view only***************  */
+  table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    th{
+      
+    }
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+</style>
+
+<h1 class="text-center">Analise Application</h1>
+
+<div class="container-fluid reporthead" onload="applicationtrack()">
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a href="#" class="nav-link " onclick="applicationtrack()">Application Track</a>
+    </li>
+    <li class="nav-item">
+      <a href="#" class="nav-link" onclick="intschedule()">Interview Schedule</a>
+    </li>
+    <li class="nav-item">
+      <a href="#"  class="nav-link" onclick="skilltest()">Interview/Skill Test</a>
+    </li>
+    <li class="nav-item">
+      <a href="#" class="nav-link" onclick="training()">Training</a>
+     </li>
+    <li class="nav-item">
+      <a href="#" class="nav-link active " onclick="aptletter()">Appointment Letter</a>
+    </li>
+  </ul>
+</div>
+
+<div class="container-fluid main2 my-1">
+<!-- #####################DIV1###################### -->
+    <div class="sub1" id="applicationtrack1">
+    <h2 class="text-center">All Applications</h2>
+    <table>
+      <tr>
+        <th>Application ID</th>
+        <th>user Name</th>
+        <th>Post</>
+        <th>Date</th>
+        <th>VIEW</th>
+      </tr>
+      {% for x in apl %}
+    <tr>
+      <td>{{x.application_id}}</td>
+      <td>{{x.userName}}</td>
+      <td>{{x.post_name}}</td>
+      <td>{{x.application_date}}</td>
+      <td><a href="adminHome" target="_sagar">view</a></td>
+    </tr>
+    {% endfor %}
+
+    </table>
+    </div>
+<!-- #####################DIV2###################### -->
+    <div class="sub1" id="intschedule1">
+      <div class="container">
+        <h2>Scedule Interview</h2>
+        <form class="form" action="schedule" method="POST">{%csrf_token%}
+          <table>
+            <tr>
+              <td>Post:</td>
+              <td><select class="form-control-sm" name="post" id="exampleFormControlSelect1">
+                  {% for n in emp2%}
+                    <option>{{n.post_name}}</option>
+                  {% endfor %} 
+                </select>
+              </td>
+            </tr>
+             <tr> 
+              <td>Interview Date:</td> 
+              <td><input type="date"  class="form-control-sm" name="idate" onchange="mydob()"></td>
+            </tr>
+            <tr> 
+              <td>Start Date:</td>
+              <td> <input type="date"  class="form-control-sm" name="sdate" onchange="mydob()"></td>
+            </tr> 
+            <tr>
+              <td>End Date:</td>
+              <td><input type="date"  class="form-control-sm" name="edate" onchange="mydob()"></td>
+            </tr>
+            <tr>
+              <td><button type="submit" class="btn btn-default">Submit</button></td>
+              <td></td>
+            </tr>
+          </table>
+        </form>
+        <button class="btn btn-default" onclick="window.location.href = 'scheduleDelete';">Schedule Delete</button> 
+      </div>
+      <table>
+        <tr>
+          <th>Post</th>
+          <th>Start Date</th>
+          <th>End Date</>
+        </tr>
+        {% for j in apl2 %}
+      <tr>
+        <td>{{j.post}}</td>
+        <td>{{j.startDate}}</td>
+        <td>{{j.endDate}}</td>
+      </tr>
+      {% endfor %}
+  
+      </table>
+
+    </div>
+
+
+    <div class="sub1" id="skilltest1">skilltest1
+    </div>
+
+    <div class="sub1 " id="training1">training1
+    </div>
+
+    <div class="sub1" id="aptletter1">aptletter1
+    </div>
+</div>
+   
+
+
+<script>
+    function applicationtrack(){
+      document.getElementById("applicationtrack1").style.display = "block";
+      document.getElementById("intschedule1").style.display = "none";
+      document.getElementById("skilltest1").style.display = "none";
+      document.getElementById("training1").style.display = "none";
+      document.getElementById("aptletter1").style.display = "none";
+    }
+    function intschedule(){
+      document.getElementById("applicationtrack1").style.display = "none";
+      document.getElementById("intschedule1").style.display = "block";
+      document.getElementById("skilltest1").style.display = "none";
+      document.getElementById("training1").style.display = "none";
+      document.getElementById("aptletter1").style.display = "none";
+    }
+    function skilltest(){
+      document.getElementById("applicationtrack1").style.display = "none";
+      document.getElementById("intschedule1").style.display = "none";
+      document.getElementById("skilltest1").style.display = "block";
+      document.getElementById("training1").style.display = "none";
+      document.getElementById("aptletter1").style.display = "none";
+    }
+    function training(){
+      document.getElementById("applicationtrack1").style.display = "none";
+      document.getElementById("intschedule1").style.display = "none";
+      document.getElementById("skilltest1").style.display = "none";
+      document.getElementById("training1").style.display = "block";
+      document.getElementById("aptletter1").style.display = "none";
+    }
+    function aptletter(){
+      document.getElementById("applicationtrack1").style.display = "none";
+      document.getElementById("intschedule1").style.display = "none";
+      document.getElementById("skilltest1").style.display = "none";
+      document.getElementById("training1").style.display = "none";
+      document.getElementById("aptletter1").style.display = "block";
+    } 
+</script>
+{% endblock %}

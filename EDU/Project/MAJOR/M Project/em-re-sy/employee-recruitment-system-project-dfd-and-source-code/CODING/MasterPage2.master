@@ -1,0 +1,72 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage2.master.cs" Inherits="MasterPage2" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title>Untitled Page</title>
+</head>
+<body>
+     <form id="form1" runat="server">
+    <div>
+        &nbsp;<div>
+            &nbsp;<div>
+                &nbsp;<table border="0" cellpadding="0" cellspacing="0" style="width: 97%; height: 1%">
+                    <tr>
+                        <td colspan="2">
+                            <div style="text-align: center">
+                                <table style="width: 644px; height: 60px">
+                                    <tr>
+                                        <td colspan="2">
+                                            <asp:AdRotator ID="AdRotator1" runat="server" AdvertisementFile="~/XMLFile.xml" Height="102px" 
+                                                Style="position: static" Width="513px" />
+                                            &nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" valign="middle">
+                                            
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 200px">
+                        <asp:Menu ID="Menu1" runat="server" Height="233px" Width="57px" Font-Bold="True" BackColor="#FFFBD6" DynamicHorizontalOffset="2" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#990000" StaticSubMenuIndent="10px">
+                                                <Items>
+                                                    <asp:MenuItem Text="UserProfile" Value="PostResume" ></asp:MenuItem>
+                                                    <asp:MenuItem NavigateUrl="~/user/Editprofile.aspx" Text="Change Password" Value="Change Password">
+                                                    </asp:MenuItem>
+                                                    <asp:MenuItem Text="Inbox" Value="New Item" NavigateUrl="~/user/inbox.aspx"></asp:MenuItem>
+                                                    <asp:MenuItem Text="PostingJobs" Value="PostingJobs"></asp:MenuItem>
+                                                    <asp:MenuItem Text="SearchJobs" Value="SearchJobs" NavigateUrl="~/user/SearchJobs.aspx"></asp:MenuItem>
+                                                    <asp:MenuItem Text="Feedback" Value="Feedback" NavigateUrl="~/user/feedback.aspx"></asp:MenuItem>
+                                                    <asp:MenuItem NavigateUrl="~/home.aspx" Text="Logout" Value="Home"></asp:MenuItem>
+                                                </Items>
+                            <StaticMenuStyle BackColor="Silver" />
+                            <StaticSelectedStyle BackColor="#FFCC66" />
+                            <StaticMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+                            <DynamicHoverStyle BackColor="#990000" ForeColor="White" />
+                            <DynamicMenuStyle BackColor="#FFFBD6" />
+                            <DynamicSelectedStyle BackColor="#FFCC66" />
+                            <DynamicMenuItemStyle HorizontalPadding="5px" VerticalPadding="2px" />
+                            <StaticHoverStyle BackColor="#990000" ForeColor="White" />
+                                            </asp:Menu>
+                        </td>
+                        <td>
+                            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" style="height: 2px">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    </form>
+</body>
+</html>
